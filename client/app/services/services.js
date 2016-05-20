@@ -2,6 +2,39 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  //get the links from server which gets it from the db.
+
+  var getdata = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function (data) {
+      console.log('data received from getdata in factory: ', data.data);
+      return data.data;
+    });
+  };
+
+  var postdata = function (url) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    })
+    .then(function (link) {
+      console.log('link received from link creation: ', link);
+      return link;
+    });
+  };
+
+
+  // var service = {};
+  // service.getLinks = getdata;
+  // return service;
+  return {
+    getAll: getdata,
+    addOne: postdata
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
