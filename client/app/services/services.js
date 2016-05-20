@@ -11,6 +11,7 @@ angular.module('shortly.services', [])
     })
     .then(function (data) {
       console.log('data received from getdata in factory: ', data.data);
+      // array of objects with urls and titles 
       return data.data;
     });
   };
@@ -23,6 +24,7 @@ angular.module('shortly.services', [])
     })
     .then(function (link) {
       console.log('link received from link creation: ', link);
+      // object with data.url and data.title and response
       return link;
     });
   };
