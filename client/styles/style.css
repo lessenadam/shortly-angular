@@ -120,6 +120,10 @@ input[type=url]:focus {
   margin: 0 10px;
 }
 
+.alert {
+  color: red;
+}
+
 .clean {
   border: #efe solid 2px;
   padding: 10px;

@@ -1,6 +1,9 @@
 <div id='container'>
   <input ng-model="newLink">
   <button ng-click="addLink()">Add</button>
+  <div ng-show="errorMessage" class="alert">
+    Not a valid URL
+  </div>
 </div>
 
 
