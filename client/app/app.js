@@ -17,11 +17,16 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
+    })
+    .otherwise({
+      redirectTo: '/signin'
     });
 
     // We add our $httpInterceptor into the array
@@ -54,6 +59,18 @@ angular.module('shortly', [
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    // console.log('dollar dollar route yall', next.$$route);
+    // console.log('.authenticate', next.$$route.authenticate);
+    // console.log('am I auth', Auth.isAuth());
+
+    // if (next.$$route.originalPath === '/' || 
+    //   next.$$route.originalPath === '/links' || 
+    //     next.$$route.originalPath === '/shorten') {
+    //   if (!Auth.isAuth()) {
+    //     $location.path('/signin');
+    //   }
+    // }
+
     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
       $location.path('/signin');
     }

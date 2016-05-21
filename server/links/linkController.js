@@ -58,6 +58,7 @@ module.exports = {
     findLink({code: req.params.code})
       .then(function (link) {
         if (!link) {
+          console.log('im a bad link---------');
           return next(new Error('Link not added yet'));
         }
 

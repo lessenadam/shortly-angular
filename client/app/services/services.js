@@ -18,6 +18,8 @@ angular.module('shortly.services', [])
 
   var postdata = function (url) {
     url = url || '';
+    url = {url: url};
+    console.log('going to post data: ', url);
     return $http({
       method: 'POST',
       url: '/api/links',
@@ -48,6 +50,7 @@ angular.module('shortly.services', [])
   // after you signin/signup open devtools, click resources,
   // then localStorage and you'll see your token from the server
   var signin = function (user) {
+    console.log('useris-------: ', user);
     return $http({
       method: 'POST',
       url: '/api/users/signin',
