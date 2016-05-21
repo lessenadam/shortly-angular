@@ -1,5 +1,5 @@
 <div id="container" >
-  <form name="urlForm" ng-controller="ShortenController">
+  <form name="urlForm" >
     <input name="input" type="url" ng-model="newLink" ng-class="{error: !urlForm.input.$valid}">
     <button ng-click="addLink()">Add</button>
   <div ng-show="!urlForm.input.$valid" class="alert">

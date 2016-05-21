@@ -1,7 +1,7 @@
-<div id='container' ng-controller='LinksController'>
+<div id='container'>
   <!-- Your html here -->
-  <ul> 
-    <li ng-repeat="link in data.links">
+  <ul class="link"> 
+    <li ng-repeat="link in data.links | orderBy:'-visits'">
 
       <img src='/assets/redirect_icon.png'/>
       <div class='info'>
