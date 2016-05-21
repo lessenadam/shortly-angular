@@ -1,9 +1,15 @@
-<div id='container'>
-  <input ng-model="newLink">
-  <button ng-click="addLink()">Add</button>
-  <div ng-show="errorMessage" class="alert">
+<div id="container" >
+  <form name="urlForm" ng-controller="ShortenController">
+    <input name="input" type="url" ng-model="newLink" ng-class="{error: !urlForm.input.$valid}">
+    <button ng-click="addLink()">Add</button>
+  <div ng-show="!urlForm.input.$valid" class="alert">
     Not a valid URL
   </div>
+  <hr/>
+  <!-- for dev eyes on only -->
+  <div>text = {{newLink}}</div>
+  <div>urlForm.input.$valid = {{urlForm.input.$valid}}</div>
+  </form>
 </div>
 
 
